@@ -1,0 +1,39 @@
+.movie-card {
+    max-width: 300px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    &__title {
+        padding: 20px;
+
+        background-color: #ff6f6f;
+
+        font-size: 20px;
+        font-weight: 700;
+
+        text-transform: uppercase;
+
+        text-align: center;
+
+    }
+
+    &__img {
+        height: 100%;
+        width: 100%;
+
+        aspect-ratio: 2 / 3;
+
+        object-fit: cover;
+    }
+
+    &__buttons {
+        display: flex;
+
+        justify-content: flex-end;
+
+        gap: 20px;
+    }
+}

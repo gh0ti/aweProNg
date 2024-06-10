@@ -1,2 +1,15 @@
 @import "fonts";
+
 @import "reset";
+
+[class*="__container"] {
+    max-width: 1230px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #f49b19;
+}

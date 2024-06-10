@@ -1,5 +1,7 @@
 interface MovieType {
-    title: string
+    id: string,
+    title: string,
+    poster: string,
 };
 
 export default MovieType;
