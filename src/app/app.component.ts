@@ -12,8 +12,6 @@ import MovieType from "../types/movie-type";
 })
 export class AppComponent implements OnInit {
     movieList: MovieType[] = [];
-    favoritesList: MovieType[] = [];
-    watchList: MovieType[] = [];
     mainMovieListName = "Movies";
 
     ngOnInit() {
@@ -35,18 +33,5 @@ export class AppComponent implements OnInit {
                 poster: "/assets/posters/avengers.webp"
             },
         ];
-    }
-
-    addToFavoritesHandler(movie: MovieType): void {
-        console.log(movie);
-    }
-
-    addToWatchHandler(movie: MovieType): void {
-        console.log(movie);
-    }
-
-    onClickHandler(event: MouseEvent): void {
-        console.log(event);
-        this.mainMovieListName += "*";
     }
 }
