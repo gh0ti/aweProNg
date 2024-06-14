@@ -1,10 +1,13 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import MovieType from "../../../types/movie-type";
+import {TimestampToDatePipe} from "../../pipes/timestamp-to-time.pipe";
 
 @Component({
     selector: 'app-movie-card',
     standalone: true,
-    imports: [],
+    imports: [
+        TimestampToDatePipe
+    ],
     templateUrl: './movie-card.component.html',
     styleUrl: './movie-card.component.scss'
 })
