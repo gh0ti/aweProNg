@@ -2,13 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {MovieListComponent} from "./components/movie-list/movie-list.component";
 import MovieType from "../types/movie-type";
-import {MatAnchor, MatMiniFabAnchor} from "@angular/material/button";
 import movies from "../assets/mock-data/movies";
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [RouterOutlet, MovieListComponent, MatAnchor, MatMiniFabAnchor],
+    imports: [RouterOutlet, MovieListComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })

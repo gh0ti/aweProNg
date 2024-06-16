@@ -40,6 +40,10 @@
         transition: transform .1s ease-in;
     }
 
+    &:hover &__title {
+        background-color: #ff9090;
+    }
+
     &:hover &__img {
         transform: scale(1.05);
     }
