@@ -12,20 +12,20 @@
             <h2 class="movie-list__title">Favorite Movies</h2>
             <div class="movie-list__items">
                 @for (movie of favoriteMovies; track movie) {
-                    <ul>
-                        <li>{{ movie.title }}</li>
-                    </ul>
+                    <app-movie-card-brief [movie]="movie"></app-movie-card-brief>
                 }
             </div>
         }
         @if (watchList.length > 0) {
             <h2 class="movie-list__title">Watch List</h2>
             <div class="movie-list__items">
-                @for (movie of watchList; track movie) {
                     <ul>
-                        <li>{{ movie.title }}</li>
+                        @for (movie of watchList; track movie) {
+                            <li>
+                                {{ movie.title }}
+                            </li>
+                        }
                     </ul>
-                }
             </div>
         }
     </div>

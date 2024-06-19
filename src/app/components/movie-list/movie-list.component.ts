@@ -1,13 +1,19 @@
 import {Component, Input} from '@angular/core';
 import MovieType from "../../../types/movie-type";
 import {MovieCardComponent} from "../movie-card/movie-card.component";
+import {MovieCardBriefComponent} from "../movie-card-brief/movie-card-brief.component";
+import {Button} from "primeng/button";
+import {MatButton} from "@angular/material/button";
 
 @Component({
     selector: 'app-movie-list',
     standalone: true,
     imports: [
-    MovieCardComponent
-],
+        MovieCardComponent,
+        MovieCardBriefComponent,
+        Button,
+        MatButton
+    ],
     templateUrl: './movie-list.component.html',
     styleUrl: './movie-list.component.scss'
 })

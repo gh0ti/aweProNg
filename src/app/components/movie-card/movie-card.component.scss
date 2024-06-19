@@ -23,6 +23,12 @@
 
     }
 
+    &__img-container {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+
     &__img {
         height: 100%;
         width: 100%;
@@ -30,6 +36,16 @@
         aspect-ratio: 2 / 3;
 
         object-fit: cover;
+
+        transition: transform .1s ease-in;
+    }
+
+    &:hover &__title {
+        background-color: #ff9090;
+    }
+
+    &:hover &__img {
+        transform: scale(1.05);
     }
 
     &__date-release {
@@ -43,4 +59,9 @@
 
         gap: 20px;
     }
+
+    &__button {
+        background-color: lightseagreen;
+    }
+
 }

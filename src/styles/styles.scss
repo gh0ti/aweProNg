@@ -1,6 +1,11 @@
 @import "fonts";
 
-@import "reset";
+@import "_reset.scss" layer reset;
+
+@import "@angular/material/prebuilt-themes/indigo-pink.css" layer material;
+
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
 
 [class*="__container"] {
     max-width: 1230px;
@@ -11,5 +16,9 @@
 .button {
     padding: 10px 20px;
     border-radius: 10px;
+    color: black;
     background-color: #f49b19;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
