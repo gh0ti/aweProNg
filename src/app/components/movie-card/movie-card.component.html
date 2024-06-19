@@ -1,6 +1,9 @@
 <div class="movie-card">
     <h2 class="movie-card__title">{{movie.title}}</h2>
     <img src="{{movie.poster}}" alt="Poster" class="movie-card__img">
+    @if (movie.releaseDate) {
+        <div class="movie-card__release-date-container">Release date: <span class="movie-card__date-release">{{ movie.releaseDate | timestampToDate }}</span></div>
+    }
     <div class="movie-card__buttons">
         <button class="movie-card__button button button--favorites" (click)="addFavoriteHandler(movie)">Fav</button>
         <button class="movie-card__button button button--watch" (click)="addWatchListHandler(movie)">Watch</button>

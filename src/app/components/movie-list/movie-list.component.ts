@@ -1,16 +1,13 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import MovieType from "../../../types/movie-type";
 import {MovieCardComponent} from "../movie-card/movie-card.component";
-import {NgForOf, NgIf} from "@angular/common";
 
 @Component({
     selector: 'app-movie-list',
     standalone: true,
     imports: [
-        MovieCardComponent,
-        NgForOf,
-        NgIf
-    ],
+    MovieCardComponent
+],
     templateUrl: './movie-list.component.html',
     styleUrl: './movie-list.component.scss'
 })

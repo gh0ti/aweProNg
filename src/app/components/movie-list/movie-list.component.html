@@ -3,32 +3,30 @@
         <h2 class="movie-list__title">{{ title }}:</h2>
 
         <div class="movie-list__items">
-            <ng-container *ngFor="let movie of movies">
-                <app-movie-card [movie]=movie (addFavoriteEmitter)="addToFavorite(movie)" (addWatchListEmitter)="addToWatchList(movie)"></app-movie-card>
-            </ng-container>
+            @for (movie of movies; track movie) {
+                <app-movie-card [movie]=movie (addFavoriteEmitter)="addToFavorite(movie)"
+                                (addWatchListEmitter)="addToWatchList(movie)"></app-movie-card>
+            }
         </div>
-
-        <ng-container *ngIf="favoriteMovies.length > 0">
+        @if (favoriteMovies.length > 0) {
             <h2 class="movie-list__title">Favorite Movies</h2>
             <div class="movie-list__items">
-                <ul *ngFor="let movie of favoriteMovies">
-                    <li>{{ movie.title }}</li>
-                </ul>
+                @for (movie of favoriteMovies; track movie) {
+                    <ul>
+                        <li>{{ movie.title }}</li>
+                    </ul>
+                }
             </div>
-        </ng-container>
-
-        <ng-container *ngIf="watchList.length > 0">
+        }
+        @if (watchList.length > 0) {
             <h2 class="movie-list__title">Watch List</h2>
             <div class="movie-list__items">
-                <ul *ngFor="let movie of watchList">
-                    <li>{{ movie.title }}</li>
-                </ul>
+                @for (movie of watchList; track movie) {
+                    <ul>
+                        <li>{{ movie.title }}</li>
+                    </ul>
+                }
             </div>
-        </ng-container>
-
-
+        }
     </div>
-
-
-
 </div>
