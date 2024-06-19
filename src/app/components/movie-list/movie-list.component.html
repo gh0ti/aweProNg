@@ -1,32 +1,33 @@
+<h2>Усі фільми:</h2>
 <div class="movie-list">
-    <div class="movie-list__container">
-        <h2 class="movie-list__title">{{ title }}:</h2>
+  <div class="movie-item" *ngFor="let movie of movieList">
+    <app-movie-card
+      [movie]="movie"
+      (addToFavoriteEvt)="addToFavorite($event)"
+      (addToWatchListEvt)="addToWatchList($event)"
+    ></app-movie-card>
+  </div>
+</div>
 
-        <div class="movie-list__items">
-            @for (movie of movies; track movie) {
-                <app-movie-card [movie]=movie (addFavoriteEmitter)="addToFavorite(movie)"
-                                (addWatchListEmitter)="addToWatchList(movie)"></app-movie-card>
-            }
-        </div>
-        @if (favoriteMovies.length > 0) {
-            <h2 class="movie-list__title">Favorite Movies</h2>
-            <div class="movie-list__items">
-                @for (movie of favoriteMovies; track movie) {
-                    <app-movie-card-brief [movie]="movie"></app-movie-card-brief>
-                }
-            </div>
-        }
-        @if (watchList.length > 0) {
-            <h2 class="movie-list__title">Watch List</h2>
-            <div class="movie-list__items">
-                    <ul>
-                        @for (movie of watchList; track movie) {
-                            <li>
-                                {{ movie.title }}
-                            </li>
-                        }
-                    </ul>
-            </div>
-        }
+<div class="saved-movie">
+  <div>
+    <h2>Улюблені:</h2>
+    <div class="movie-list">
+      <div class="movie-item" *ngFor="let movie of favoriteMovies">
+        <app-movie-card
+          [movie]="movie"
+        ></app-movie-card>
+      </div>
     </div>
+  </div>
+  <div>
+    <h2>Подивитись:</h2>
+    <div class="movie-list">
+      <div class="movie-item" *ngFor="let movie of toWatchMovies">
+        <app-movie-card
+          [movie]="movie"
+        ></app-movie-card>
+      </div>
+    </div>
+  </div>
 </div>

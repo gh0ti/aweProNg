@@ -1,18 +1,10 @@
-<mat-card class="movie-card">
-    <mat-card-title class="movie-card__title">{{movie.title}}</mat-card-title>
-    <mat-card-content>
-<!--        TODO: try to write overflow directive instead of `movie-card__img-container-->
-        <div class="movie-card__img-container">
-            <img mat-card-image src="{{movie.poster}}" alt="Poster" class="movie-card__img">
-        </div>
-        @if (movie.releaseDate) {
-            <div class="movie-card__release-date-container">Release date: <span class="movie-card__date-release">{{ movie.releaseDate | timestampToDate }}</span></div>
-        }
-    </mat-card-content>
-    <mat-card-footer>
-        <mat-card-actions class="movie-card__buttons">
-            <button mat-fab class="button movie-card__button movie-card__button--favorites" (click)="addFavoriteHandler(movie)">Fav</button>
-            <button mat-fab class="button movie-card__button movie-card__button--watch" (click)="addWatchListHandler(movie)">Watch</button>
-        </mat-card-actions>
-    </mat-card-footer>
-</mat-card>
+<div class="movie-card">
+  <img [src]="movie.image" alt="{{ movie.title }}" class="movie-image">
+  <div class="movie-details">
+    <h2>{{ movie.title }}</h2>
+    <p>{{ movie.overview }}</p>
+    <p>Рейтинг: {{ movie.rating }}</p>
+    <button class="btn-favorite" (click)="addToFavorite(movie)">Додати до улюблених</button>
+    <button class="btn-watch" (click)="addToWatchList(movie)">Додати до списку перегляду</button>
+  </div>
+</div>

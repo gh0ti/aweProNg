@@ -1,67 +1,40 @@
 .movie-card {
-    max-width: 300px;
+  width: 300px;
+  background-color: #1c1c1c;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 6px;
+  color: #c9c9c9;
 
-    display: flex;
-    flex-direction: column;
+  .movie-image {
+    height: 200px;
+  }
 
-    flex-wrap: wrap;
-    align-content: center;
+  .movie-details {
 
-    gap: 10px;
+  }
 
-    &__title {
-        padding: 20px;
+  button {
+    width: 100%;
+    padding: 6px 10px;
+    border: 1px solid transparent;
+    margin-bottom: 10px;
+    color: white;
+    border-radius: 4px;
 
-        background-color: #ff6f6f;
-
-        font-size: 20px;
-        font-weight: 700;
-
-        text-transform: uppercase;
-
-        text-align: center;
-
+    &:last-child {
+      margin-bottom: 0;
     }
+  }
 
-    &__img-container {
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
-    }
+  .btn-favorite {
+    background-color: chocolate;
+  }
 
-    &__img {
-        height: 100%;
-        width: 100%;
-
-        aspect-ratio: 2 / 3;
-
-        object-fit: cover;
-
-        transition: transform .1s ease-in;
-    }
-
-    &:hover &__title {
-        background-color: #ff9090;
-    }
-
-    &:hover &__img {
-        transform: scale(1.05);
-    }
-
-    &__date-release {
-        font-weight: 700;
-    }
-
-    &__buttons {
-        display: flex;
-
-        justify-content: flex-end;
-
-        gap: 20px;
-    }
-
-    &__button {
-        background-color: lightseagreen;
-    }
+  .btn-watch {
+    background-color: #6a8f2b;
+  }
 
 }

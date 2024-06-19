@@ -1,22 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {RouterOutlet} from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import {MovieListComponent} from "./components/movie-list/movie-list.component";
-import MovieType from "../types/movie-type";
-import movies from "../assets/mock-data/movies";
+import {MovieCardComponent} from "./components/movie-card/movie-card.component";
 
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    imports: [RouterOutlet, MovieListComponent],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss'
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, MovieListComponent, MovieCardComponent],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit {
-    movieList: MovieType[] = [];
-    mainMovieListName = "Movies";
-
-    ngOnInit() {
-        // TODO: replace static array with getting data from API
-        this.movieList = movies;
-    }
+export class AppComponent {
+  title = 'movies';
 }
