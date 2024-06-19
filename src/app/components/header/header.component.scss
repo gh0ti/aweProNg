@@ -1,0 +1,21 @@
+.header {
+  height: 50px;
+  background-color: #b73232;
+  display: flex;
+
+  .header-logo {
+    width: 300px;
+    background-color: #ab2d2d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+
+  .header-main {
+    width: calc(100% - 300px);
+    padding: 20px;
+    box-sizing: border-box;
+  }
+}

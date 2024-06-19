@@ -1,0 +1,21 @@
+.menu {
+  ul {
+    margin-top: 50px;
+
+    li {
+      padding-block: 12px;
+      padding-inline: 40px 10px;
+      letter-spacing: 2px;
+
+      &:first-child {
+        background-color: #17191e;
+        color: #e34a4a;
+      }
+
+      &:hover {
+        background-color: #17191e;
+        transition: .5s;
+      }
+    }
+  }
+}

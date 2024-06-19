@@ -1,4 +1,4 @@
-<h2>Усі фільми:</h2>
+<ng-content select=".header"></ng-content>
 <div class="movie-list">
   <div class="movie-item" *ngFor="let movie of movieList">
     <app-movie-card
@@ -9,7 +9,7 @@
   </div>
 </div>
 
-<div class="saved-movie">
+<!--<div class="saved-movie">
   <div>
     <h2>Улюблені:</h2>
     <div class="movie-list">
@@ -30,4 +30,25 @@
       </div>
     </div>
   </div>
+</div>-->
+<div class="saved-movie">
+<p-fieldset legend="Улюблені" [toggleable]="true" [style]="{'background-color': 'transparent'}">
+  <div class="movie-list">
+    <div class="movie-item" *ngFor="let movie of favoriteMovies">
+      <app-movie-card
+        [movie]="movie"
+      ></app-movie-card>
+    </div>
+  </div>
+</p-fieldset>
+
+<p-fieldset legend="Подивитись" [toggleable]="true" [style]="{'background-color': 'transparent'}">
+  <div class="movie-list">
+    <div class="movie-item" *ngFor="let movie of toWatchMovies">
+      <app-movie-card
+        [movie]="movie"
+      ></app-movie-card>
+    </div>
+  </div>
+</p-fieldset>
 </div>

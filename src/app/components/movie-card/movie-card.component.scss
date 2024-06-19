@@ -1,4 +1,4 @@
-.movie-card {
+.mat-movie-card {
   width: 300px;
   background-color: #1c1c1c;
   padding: 20px;
@@ -10,10 +10,16 @@
 
   .movie-image {
     height: 200px;
+
   }
 
   .movie-details {
-
+    .card-overview {
+      width: 100px;
+      height: 100px;
+      white-space: nowrap;
+      overflow: auto;
+    }
   }
 
   button {
@@ -21,7 +27,7 @@
     padding: 6px 10px;
     border: 1px solid transparent;
     margin-bottom: 10px;
-    color: white;
+    //color: white;
     border-radius: 4px;
 
     &:last-child {
@@ -38,3 +44,42 @@
   }
 
 }
+
+.p-movie-card {
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: none;
+  position: relative;
+
+  .rating {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -60%);
+    background-color: #ffc400;
+    padding: 2px 10px;
+    border-radius: 15px;
+    color: white;
+  }
+
+  .movie-image {
+    height: 330px;
+    width: 100%;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .p-card-content {
+    padding: 0;
+  }
+}
+
+.p-rating-star {
+  background-color: #ab2d2d;
+  color: #ab2d2d;
+}
+
+

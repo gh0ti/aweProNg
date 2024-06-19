@@ -1,9 +1,27 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {EllipsisDirective} from "../../directives/ellipsis.directive";
+import {MatCard, MatCardContent} from "@angular/material/card";
+import {MatButton, MatFabButton, MatMiniFabButton} from "@angular/material/button";
+import {CardModule} from "primeng/card";
+import {Button} from "primeng/button";
+import {RatingModule} from "primeng/rating";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-movie-card',
   standalone: true,
-  imports: [],
+  imports: [
+    EllipsisDirective,
+    MatCard,
+    MatCardContent,
+    MatButton,
+    MatMiniFabButton,
+    MatFabButton,
+    CardModule,
+    Button,
+    RatingModule,
+    FormsModule
+  ],
   templateUrl: './movie-card.component.html',
   styleUrl: './movie-card.component.scss'
 })

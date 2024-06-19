@@ -1,1 +1,17 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+  min-height: 100%;
 
+  .main-sidebar {
+    width: 300px;
+    background-color: #0d0e12;
+  }
+
+  .main-body {
+    width: calc(100% - 300px);
+    background-color: #17191e;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+}
