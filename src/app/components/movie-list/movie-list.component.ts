@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {MovieCardComponent} from "../movie-card/movie-card.component";
 import {NgForOf} from "@angular/common";
 import {FieldsetModule} from "primeng/fieldset";
+import {Button} from "primeng/button";
 
 @Component({
   selector: 'app-movie-list',
@@ -9,15 +10,20 @@ import {FieldsetModule} from "primeng/fieldset";
   imports: [
     MovieCardComponent,
     NgForOf,
-    FieldsetModule
+    FieldsetModule,
+    Button
   ],
   templateUrl: './movie-list.component.html',
   styleUrl: './movie-list.component.scss'
 })
 export class MovieListComponent {
 
-  favoriteMovies: any[] = [];
-  toWatchMovies: any[]  = [];
+  @Input() movies: any[] = [];
+  @Input() isEnableAdd: boolean = false;
+
+  @Output() addToFavoriteEvt = new EventEmitter<any>();
+  @Output() addToWatchListEvt = new EventEmitter<any>();
+
 
   movieList = [
     {
@@ -47,12 +53,11 @@ export class MovieListComponent {
     },
   ];
 
-  addToFavorite(movie: any) {
-    this.favoriteMovies.push(movie);
+  addToFavorite(id: any) {
+    this.addToFavoriteEvt.emit(id);
   }
 
-  addToWatchList(movie: any) {
-    this.toWatchMovies.push(movie);
+  addToWatchList(id: any) {
+    this.addToWatchListEvt.emit(id);
   }
-
 }

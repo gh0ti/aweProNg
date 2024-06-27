@@ -1,0 +1,28 @@
+<div class="movie-overview">
+  <div class="movie-img">
+    <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path" alt="{{ movie.title }}" class="movie-image">
+  </div>
+  <div class="movie-details">
+    <h2 class="title">{{movie.title}}</h2>
+
+    <div class="movie-rating">
+      <p-rating [ngModel]="movie.vote_average" [cancel]="false" readonly="true" [stars]="10" class="rating"></p-rating>
+      <div class="movie-rating-title"> - {{ movie.vote_average }}</div>
+    </div>
+    <div class="movie-details-block">
+      <div class="movie-details-title">Original language: </div>
+      <div class="movie-details-value">{{movie.original_language}}</div>
+    </div>
+    <div class="movie-details-block">
+      <div class="movie-details-title">Popularity: </div>
+      <div class="movie-details-value">{{movie.popularity}}</div>
+    </div>
+    <div class="movie-details-block">
+      <div class="movie-details-title">Release date: </div>
+      <div class="movie-details-value">{{movie.release_date}}</div>
+    </div>
+    <div class="movie-overview">
+      <p class="" appEllipsis>{{ movie.overview }}</p>
+    </div>
+  </div>
+</div>
