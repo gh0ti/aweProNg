@@ -21,15 +21,17 @@
 >
 <!--<p-card [header]="movie.title" class="p-movie-card">-->
   <ng-template pTemplate="header">
-    <div class="rating">{{ movie.rating }}</div>
-    <img [src]="movie.image" alt="{{ movie.title }}" class="movie-image">
+    <div class="rating">{{ movie.vote_average }}</div>
+    <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path" [routerLink]="['/movie', movie.id]" alt="{{ movie.title }}" class="movie-image">
   </ng-template>
 <!--  <div class="movie-details">-->
 <!--    <p class="card-overview" appEllipsis>{{ movie.overview }}</p>-->
 <!--    <p-rating [(ngModel)]="movie.rating" [cancel]="false" readonly="true" [stars]="10" />-->
 <!--  </div>-->
 <!--  <ng-template pTemplate="footer">-->
-      <p-button icon="pi pi-heart" rounded="true" text="true" (click)="addToFavorite(movie)"/>
-      <p-button icon="pi pi-plus" rounded="true" text="true" (click)="addToWatchList(movie)"/>
+  <ng-container *ngIf="isEnableAdd">
+      <p-button icon="pi pi-heart" rounded="true" text="true" (click)="addToFavorite(movie.id)"/>
+      <p-button icon="pi pi-plus" rounded="true" text="true" (click)="addToWatchList(movie.id)"/>
+  </ng-container>
 <!--  </ng-template>-->
 </p-card>

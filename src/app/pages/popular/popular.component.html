@@ -1,0 +1,15 @@
+<div class="page-wrapper">
+  <app-page-header
+    [favoriteMovieIds]="favoriteMovieListIds"
+    [watchLaterMovieIds]="watchLaterMovieListIds"
+  ></app-page-header>
+</div>
+
+
+<h2>Popular movies:</h2>
+<app-movie-list
+  [movies]="movies"
+  [isEnableAdd]="true"
+  (addToFavoriteEvt)="addToFavorite($event)"
+  (addToWatchListEvt)="addToWatchList($event)"
+></app-movie-list>

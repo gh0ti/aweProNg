@@ -4,8 +4,7 @@
     <app-sidebar></app-sidebar>
   </div>
   <div class="main-body">
-    <app-movie-list></app-movie-list>
+    <div><router-outlet/></div>
+    <div><router-outlet name="header"></router-outlet></div>
   </div>
 </div>
-
-<router-outlet />
