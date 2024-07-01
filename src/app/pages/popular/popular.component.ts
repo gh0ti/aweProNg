@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MovieListComponent} from "../../components/movie-list/movie-list.component";
-import {movies} from "../../../assets/mock-data";
+import {movies} from "../../mock-data";
 import {PageHeaderComponent} from "../../components/page-header/page-header.component";
 import {MovieCardComponent} from "../../components/movie-card/movie-card.component";
 import {Button} from "primeng/button";
@@ -25,24 +25,16 @@ export class PopularComponent implements OnInit {
   watchLaterMovieListIds: string[] = [];
 
   ngOnInit() {
-    // this.favoriteMovieListIds = ['3', '4'];
-    // this.watchLaterMovieListIds = ['2', '5'];
   }
 
   addToFavorite(id: any) {
-    let repeatingId = this.favoriteMovieListIds.find(listId => listId == id);
-    if(repeatingId) {
-      return;
-    }else {
-      this.favoriteMovieListIds.push(id)
+    if(!this.favoriteMovieListIds.includes(id)){
+      this.favoriteMovieListIds.push(id);
     }
   }
 
   addToWatchList(id: any) {
-    let repeatingId = this.watchLaterMovieListIds.find(listId => listId == id);
-    if(repeatingId) {
-      return;
-    }else {
+    if(!this.watchLaterMovieListIds.includes(id)){
       this.watchLaterMovieListIds.push(id);
     }
   }

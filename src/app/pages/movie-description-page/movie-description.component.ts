@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {movies} from "../../../assets/mock-data";
+import {movies} from "../../mock-data";
 import {Button} from "primeng/button";
 import {CardModule} from "primeng/card";
 import {NgIf} from "@angular/common";

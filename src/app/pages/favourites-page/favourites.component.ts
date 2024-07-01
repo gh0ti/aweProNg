@@ -3,7 +3,7 @@ import {MovieCardComponent} from "../../components/movie-card/movie-card.compone
 import {NgForOf} from "@angular/common";
 import {PageHeaderComponent} from "../../components/page-header/page-header.component";
 import {ActivatedRoute} from "@angular/router";
-import {movies} from "../../../assets/mock-data";
+import {movies} from "../../mock-data";
 import {MovieListComponent} from "../../components/movie-list/movie-list.component";
 
 @Component({
