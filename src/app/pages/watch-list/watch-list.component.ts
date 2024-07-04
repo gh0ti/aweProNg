@@ -3,8 +3,7 @@ import {MovieCardComponent} from "../../components/movie-card/movie-card.compone
 import {NgForOf} from "@angular/common";
 import {PageHeaderComponent} from "../../components/page-header/page-header.component";
 import {MovieListComponent} from "../../components/movie-list/movie-list.component";
-import {ActivatedRoute} from "@angular/router";
-import {movies} from "../../mock-data";
+import {MovieService} from "../../services/movie.service";
 
 @Component({
   selector: 'app-watch-list',
@@ -20,24 +19,15 @@ import {movies} from "../../mock-data";
 })
 export class WatchListComponent implements OnInit {
 
-  movies = movies;
   watchList: any[] = [];
-  moviesId: any[] = [];
 
   constructor(
-    private route: ActivatedRoute,
+    private movieService: MovieService,
   ) {
-    this.moviesId = JSON.parse(route.snapshot.queryParams['data']);
   }
 
   ngOnInit() {
-    this.movies.forEach(movie => {
-      this.moviesId.forEach(id => {
-        if(movie.id == id) {
-          this.watchList.push(movie);
-        }
-      })
-    });
+    this.watchList = this.movieService.getWatchLaterMovies();
   }
 }
 

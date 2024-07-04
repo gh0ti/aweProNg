@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {MovieListComponent} from "../../components/movie-list/movie-list.component";
-import {movies} from "../../mock-data";
 import {PageHeaderComponent} from "../../components/page-header/page-header.component";
 import {MovieCardComponent} from "../../components/movie-card/movie-card.component";
 import {Button} from "primeng/button";
+import {MovieService} from "../../services/movie.service";
 
 @Component({
   selector: 'app-popular',
@@ -19,23 +19,22 @@ import {Button} from "primeng/button";
 })
 export class PopularComponent implements OnInit {
 
-  movies = movies;
+  movies:any[] = [];
 
-  favoriteMovieListIds: string[] = [];
-  watchLaterMovieListIds: string[] = [];
+  constructor(
+    private movieService: MovieService,
+  ) {
+  }
 
   ngOnInit() {
+    this.movies = this.movieService.getPopularMovies();
   }
 
   addToFavorite(id: any) {
-    if(!this.favoriteMovieListIds.includes(id)){
-      this.favoriteMovieListIds.push(id);
-    }
+    this.movieService.setFavoriteMovieId(id);
   }
 
   addToWatchList(id: any) {
-    if(!this.watchLaterMovieListIds.includes(id)){
-      this.watchLaterMovieListIds.push(id);
-    }
+    this.movieService.setWatchLaterMovieId(id);
   }
 }
