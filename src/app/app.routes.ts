@@ -14,7 +14,7 @@ export const routes: Routes = [
   { path: 'upcoming', component: UpcomingComponent},
   { path: 'movie/:id', component: MovieDescriptionComponent},
 
-  { path: 'favorites', outlet: 'header', component: FavouritesComponent},
-  { path: 'watch-list', outlet: 'header', component: WatchListComponent},
+  { path: 'favorites', component: FavouritesComponent},
+  { path: 'watch-list', component: WatchListComponent},
 ];
 

@@ -1,4 +1,4 @@
-export const movies = [
+export const newMovies = [
   {
     "adult": false,
     "backdrop_path": "/coATv42PoiLqAFKStJiMZs2r6Zb.jpg",
@@ -21,26 +21,26 @@ export const movies = [
     "vote_average": 7.763,
     "vote_count": 226
   },
-  // {
-  //   "adult": false,
-  //   "backdrop_path": "/fqv8v6AycXKsivp1T5yKtLbGXce.jpg",
-  //   "genre_ids": [
-  //     878,
-  //     12,
-  //     28
-  //   ],
-  //   "id": 653346,
-  //   "original_language": "en",
-  //   "original_title": "Kingdom of the Planet of the Apes",
-  //   "overview": "Several generations in the future following Caesar's reign, apes are now the dominant species and live harmoniously while humans have been reduced to living in the shadows. As a new tyrannical ape leader builds his empire, one young ape undertakes a harrowing journey that will cause him to question all that he has known about the past and to make choices that will define a future for apes and humans alike.",
-  //   "popularity": 4014.879,
-  //   "poster_path": "/gKkl37BQuKTanygYQG1pyYgLVgf.jpg",
-  //   "release_date": "2024-05-08",
-  //   "title": "Kingdom of the Planet of the Apes",
-  //   "video": false,
-  //   "vote_average": 6.824,
-  //   "vote_count": 1079
-  // },
+  {
+    "adult": false,
+    "backdrop_path": "/fqv8v6AycXKsivp1T5yKtLbGXce.jpg",
+    "genre_ids": [
+      878,
+      12,
+      28
+    ],
+    "id": 653346,
+    "original_language": "en",
+    "original_title": "Kingdom of the Planet of the Apes",
+    "overview": "Several generations in the future following Caesar's reign, apes are now the dominant species and live harmoniously while humans have been reduced to living in the shadows. As a new tyrannical ape leader builds his empire, one young ape undertakes a harrowing journey that will cause him to question all that he has known about the past and to make choices that will define a future for apes and humans alike.",
+    "popularity": 4014.879,
+    "poster_path": "/gKkl37BQuKTanygYQG1pyYgLVgf.jpg",
+    "release_date": "2024-05-08",
+    "title": "Kingdom of the Planet of the Apes",
+    "video": false,
+    "vote_average": 6.824,
+    "vote_count": 1079
+  },
   {
     "adult": false,
     "backdrop_path": "/hliXekHv7xc2cgXnMBLlp4Eihq8.jpg",
@@ -512,49 +512,49 @@ export const topRatedMovies = [
 ]
 
 export const upcomingMovies = [
-  {
-    "adult": false,
-    "backdrop_path": "/coATv42PoiLqAFKStJiMZs2r6Zb.jpg",
-    "genre_ids": [
-      16,
-      10751,
-      18,
-      12,
-      35
-    ],
-    "id": 1022789,
-    "original_language": "en",
-    "original_title": "Inside Out 2",
-    "overview": "Teenager Riley's mind headquarters is undergoing a sudden demolition to make room for something entirely unexpected: new Emotions! Joy, Sadness, Anger, Fear and Disgust, who’ve long been running a successful operation by all accounts, aren’t sure how to feel when Anxiety shows up. And it looks like she’s not alone.",
-    "popularity": 9750.804,
-    "poster_path": "/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg",
-    "release_date": "2024-06-11",
-    "title": "Inside Out 2",
-    "video": false,
-    "vote_average": 7.866,
-    "vote_count": 242
-  },
-  {
-    "adult": false,
-    "backdrop_path": "/gRApXuxWmO2forYTuTmcz5RaNUV.jpg",
-    "genre_ids": [
-      28,
-      80,
-      53,
-      35
-    ],
-    "id": 573435,
-    "original_language": "en",
-    "original_title": "Bad Boys: Ride or Die",
-    "overview": "After their late former Captain is framed, Lowrey and Burnett try to clear his name, only to end up on the run themselves.",
-    "popularity": 2744.583,
-    "poster_path": "/nP6RliHjxsz4irTKsxe8FRhKZYl.jpg",
-    "release_date": "2024-06-05",
-    "title": "Bad Boys: Ride or Die",
-    "video": false,
-    "vote_average": 7.1,
-    "vote_count": 312
-  },
+  // {
+  //   "adult": false,
+  //   "backdrop_path": "/coATv42PoiLqAFKStJiMZs2r6Zb.jpg",
+  //   "genre_ids": [
+  //     16,
+  //     10751,
+  //     18,
+  //     12,
+  //     35
+  //   ],
+  //   "id": 1022789,
+  //   "original_language": "en",
+  //   "original_title": "Inside Out 2",
+  //   "overview": "Teenager Riley's mind headquarters is undergoing a sudden demolition to make room for something entirely unexpected: new Emotions! Joy, Sadness, Anger, Fear and Disgust, who’ve long been running a successful operation by all accounts, aren’t sure how to feel when Anxiety shows up. And it looks like she’s not alone.",
+  //   "popularity": 9750.804,
+  //   "poster_path": "/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg",
+  //   "release_date": "2024-06-11",
+  //   "title": "Inside Out 2",
+  //   "video": false,
+  //   "vote_average": 7.866,
+  //   "vote_count": 242
+  // },
+  // {
+  //   "adult": false,
+  //   "backdrop_path": "/gRApXuxWmO2forYTuTmcz5RaNUV.jpg",
+  //   "genre_ids": [
+  //     28,
+  //     80,
+  //     53,
+  //     35
+  //   ],
+  //   "id": 573435,
+  //   "original_language": "en",
+  //   "original_title": "Bad Boys: Ride or Die",
+  //   "overview": "After their late former Captain is framed, Lowrey and Burnett try to clear his name, only to end up on the run themselves.",
+  //   "popularity": 2744.583,
+  //   "poster_path": "/nP6RliHjxsz4irTKsxe8FRhKZYl.jpg",
+  //   "release_date": "2024-06-05",
+  //   "title": "Bad Boys: Ride or Die",
+  //   "video": false,
+  //   "vote_average": 7.1,
+  //   "vote_count": 312
+  // },
   {
     "adult": false,
     "backdrop_path": "/oZDRuGHhe5uY8wBqFJcJZT9kdvJ.jpg",
