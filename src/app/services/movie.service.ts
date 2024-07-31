@@ -1,72 +1,89 @@
 import {Injectable, OnInit} from '@angular/core';
 import {newMovies, topRatedMovies, upcomingMovies} from "../mock-data";
+import {BehaviorSubject, Observable, Subject} from "rxjs";
+import {Movie, MovieApiModel} from "../models/movie.model";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
-export class MovieService implements OnInit {
+export class MovieService {
 
-  public allMovies: any[] = [];
-  private favoriteMovieListIds: string[] = [];
-  private watchLaterMovieListIds: string[] = [];
+  private favoriteMoviesSubject = new BehaviorSubject<Movie[]>([]);
+  public favoriteMovies$: Observable<Movie[]> = this.favoriteMoviesSubject.asObservable();
 
-  constructor() {
+  private watchLaterMoviesSubject = new BehaviorSubject<Movie[]>([]);
+  public watchLaterMovies$: Observable<Movie[]> = this.watchLaterMoviesSubject.asObservable();
+
+  apiKey = '?api_key=9fc7cdce076bef3dc549f9fbfb1626e6';
+  apiToken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5ZmM3Y2RjZTA3NmJlZjNkYzU0OWY5ZmJmYjE2MjZlNiIsIm5iZiI6MTcyMDEyMTk3NS41NTA2MTUsInN1YiI6IjY2ODZmNmI0OGZhZDJlNzAzOTVlYzUwNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.xZuhqk-TaS0BloCvgA8iSQTCkaj9ywg80FmeILFa1fQ';
+  apiBaseUrl = 'https://api.themoviedb.org/3/movie';
+
+  private allMovies: any[] = [];
+  private favoriteMovieList: Movie[] = [];
+  private watchLaterMovieList: Movie[] = [];
+
+  constructor(
+    private httpClient: HttpClient,
+  ) {
     this.allMovies = topRatedMovies.concat(newMovies).concat(upcomingMovies);
   }
 
-  ngOnInit() {
-
+  getPopularMovies(): Observable<MovieApiModel> {
+    return this.httpClient.get<MovieApiModel>(`${this.apiBaseUrl}/popular${this.apiKey}`);
   }
 
-  getPopularMovies() {
-    return topRatedMovies;
+  getJustReleasedMovies(): Observable<MovieApiModel> {
+    return this.httpClient.get<MovieApiModel>(`${this.apiBaseUrl}/top_rated${this.apiKey}`);
   }
 
-  getJustReleasedMovies() {
-    return newMovies;
+  getUpcomingMovies(): Observable<MovieApiModel> {
+    return this.httpClient.get<MovieApiModel>(`${this.apiBaseUrl}/upcoming${this.apiKey}`);
   }
 
-  getUpcomingMovies() {
-    return upcomingMovies;
+  getMovieDetails(id: number): Observable<any> {
+    return this.httpClient.get<MovieApiModel>(`${this.apiBaseUrl}/${id}${this.apiKey}`);
   }
 
-  setFavoriteMovieId(id: string) {
-    if(!this.favoriteMovieListIds.includes(id)){
-      this.favoriteMovieListIds.push(id);
+  setFavoriteMovie(movie: Movie) {
+    if(!this.favoriteMovieList.includes(movie)){
+      this.favoriteMovieList.push(movie);
+      this.favoriteMoviesSubject.next(this.favoriteMovieList);
     }
   }
 
-  setWatchLaterMovieId(id: string) {
-    if(!this.watchLaterMovieListIds.includes(id)){
-      this.watchLaterMovieListIds.push(id);
+  setWatchLaterMovie(movie: Movie) {
+    if(!this.watchLaterMovieList.includes(movie)){
+      this.watchLaterMovieList.push(movie);
+      this.watchLaterMoviesSubject.next(this.watchLaterMovieList);
     }
   }
 
   getFavoriteMovies() {
-    let favoriteMovies: any[] = [];
-    this.allMovies.forEach(movie => {
-      this.favoriteMovieListIds.forEach(id => {
-        if(movie.id == +id) {
-          console.log(id);
-          favoriteMovies.push(movie);
-        }
-      })
-    });
-
-    return favoriteMovies;
+    return this.favoriteMovies$;
   }
 
   getWatchLaterMovies() {
-    let watchLaterMovies: any[] = [];
+    return this.watchLaterMovies$;
+  }
 
-    this.allMovies.forEach(movie => {
-      this.watchLaterMovieListIds.forEach(id => {
-        if(movie.id == +id) {
-          watchLaterMovies.push(movie);
-        }
-      })
-    });
+  deleteFromFavoriteMovies(movie: Movie) {
+    this.favoriteMovies$.subscribe(movies => {
+      if(movies.includes(movie)) {
+        let index = movies.indexOf(movie);
+        movies.splice(index,1);
+        this.favoriteMoviesSubject.next(movies);
+      }
+    })
+  }
 
-    return watchLaterMovies;
+  deleteFromWatchLaterMovies(movie: Movie) {
+    this.watchLaterMovies$.subscribe(movies => {
+      if(movies.includes(movie)) {
+        let index = movies.indexOf(movie);
+        movies.splice(index,1);
+        this.watchLaterMoviesSubject.next(movies);
+      }
+    })
   }
 }

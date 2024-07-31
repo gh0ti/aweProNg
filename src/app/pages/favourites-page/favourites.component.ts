@@ -4,6 +4,7 @@ import {NgForOf} from "@angular/common";
 import {PageHeaderComponent} from "../../components/page-header/page-header.component";
 import {MovieListComponent} from "../../components/movie-list/movie-list.component";
 import {MovieService} from "../../services/movie.service";
+import {Movie} from "../../models/movie.model";
 
 @Component({
   selector: 'app-favourites-page',
@@ -19,7 +20,7 @@ import {MovieService} from "../../services/movie.service";
 })
 export class FavouritesComponent implements OnInit {
 
-  favoriteMovies: any[] = [];
+  favoriteMovies: Movie[] = [];
 
   constructor(
     private movieService: MovieService,
@@ -27,6 +28,13 @@ export class FavouritesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.favoriteMovies = this.movieService.getFavoriteMovies();
+    this.movieService.getFavoriteMovies().subscribe(movies => {
+      this.favoriteMovies = movies;
+    });
+
+  }
+
+  deleteFromFavorites(movie: Movie) {
+    this.movieService.deleteFromFavoriteMovies(movie);
   }
 }

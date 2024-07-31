@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MovieService} from "../../services/movie.service";
 import {MovieListComponent} from "../../components/movie-list/movie-list.component";
+import {Movie} from "../../models/movie.model";
 
 @Component({
   selector: 'app-upcoming',
@@ -13,7 +14,7 @@ import {MovieListComponent} from "../../components/movie-list/movie-list.compone
 })
 export class UpcomingComponent implements OnInit {
 
-  movies:any[] = [];
+  movies: Movie[] = [];
 
   constructor(
     private movieService: MovieService,
@@ -21,14 +22,16 @@ export class UpcomingComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.movies = this.movieService.getUpcomingMovies();
+    this.movieService.getUpcomingMovies().subscribe(data => {
+      this.movies = data.results;
+    });
   }
 
   addToFavorite(id: any) {
-    this.movieService.setFavoriteMovieId(id);
+    this.movieService.setFavoriteMovie(id);
   }
 
   addToWatchList(id: any) {
-    this.movieService.setWatchLaterMovieId(id);
+    this.movieService.setWatchLaterMovie(id);
   }
 }
