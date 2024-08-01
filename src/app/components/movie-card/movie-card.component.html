@@ -1,17 +1,3 @@
-<!--<mat-card class="mat-movie-card">-->
-<!--  <mat-card-content>-->
-<!--  <img [src]="movie.image" alt="{{ movie.title }}" class="movie-image">-->
-<!--  <div class="movie-details">-->
-<!--    <h2>{{ movie.title }}</h2>-->
-<!--    <div class="card-overview" appEllipsis>{{ movie.overview }}</div>-->
-<!--    <p>Рейтинг: {{ movie.rating }}</p>-->
-<!--    <button class="btn-favorite" (click)="addToFavorite(movie)">Додати до улюблених</button>-->
-<!--    <button class="btn-watch" (click)="addToWatchList(movie)">Додати до списку перегляду</button>-->
-<!--    <button mat-fab color="primary">add</button>-->
-<!--  </div>-->
-<!--  </mat-card-content>-->
-<!--</mat-card>-->
-
 
 <p-card
   [header]="movie.title"
@@ -19,19 +5,18 @@
   class="p-movie-card"
   [style]="{'background-color': 'transparent', 'box-shadow': 'none', color: '#c9c9c9'}"
 >
-<!--<p-card [header]="movie.title" class="p-movie-card">-->
+
   <ng-template pTemplate="header">
     <div class="rating">{{ movie.vote_average }}</div>
     <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path" [routerLink]="['/movie', movie.id]" alt="{{ movie.title }}" class="movie-image">
   </ng-template>
-<!--  <div class="movie-details">-->
-<!--    <p class="card-overview" appEllipsis>{{ movie.overview }}</p>-->
-<!--    <p-rating [(ngModel)]="movie.rating" [cancel]="false" readonly="true" [stars]="10" />-->
-<!--  </div>-->
-<!--  <ng-template pTemplate="footer">-->
+
   <ng-container *ngIf="isEnableAdd">
-      <p-button icon="pi pi-heart" rounded="true" text="true" (click)="addToFavorite(movie.id)"/>
-      <p-button icon="pi pi-plus" rounded="true" text="true" (click)="addToWatchList(movie.id)"/>
+      <p-button icon="pi pi-heart" rounded="true" text="true" (click)="addToFavorite(movie)"/>
+      <p-button icon="pi pi-plus" rounded="true" text="true" (click)="addToWatchList(movie)"/>
   </ng-container>
-<!--  </ng-template>-->
+    <ng-container *ngIf="isEnableDelete">
+      <p-button icon="pi pi-trash" rounded="true" text="true" (click)="delete(movie)"/>
+  </ng-container>
+
 </p-card>

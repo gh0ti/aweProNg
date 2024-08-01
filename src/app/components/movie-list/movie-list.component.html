@@ -3,8 +3,10 @@
     <app-movie-card
       [movie]="movie"
       [isEnableAdd]="isEnableAdd"
+      [isEnableDelete]="isEnableDelete"
       (addToFavoriteEvt)="addToFavorite($event)"
       (addToWatchListEvt)="addToWatchList($event)"
+      (deleteEvt)="delete($event)"
     >
     </app-movie-card>
   </div>
