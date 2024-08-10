@@ -4,6 +4,7 @@ import {PageHeaderComponent} from "../../components/page-header/page-header.comp
 import {MovieCardComponent} from "../../components/movie-card/movie-card.component";
 import {Button} from "primeng/button";
 import {MovieService} from "../../services/movie.service";
+import {Movie} from "../../models/movie.model";
 
 @Component({
   selector: 'app-popular',
@@ -12,14 +13,14 @@ import {MovieService} from "../../services/movie.service";
     MovieListComponent,
     PageHeaderComponent,
     MovieCardComponent,
-    Button
+    Button,
   ],
   templateUrl: './popular.component.html',
   styleUrl: './popular.component.scss'
 })
 export class PopularComponent implements OnInit {
 
-  movies:any[] = [];
+  movies: Movie[] = [];
 
   constructor(
     private movieService: MovieService,
@@ -27,14 +28,16 @@ export class PopularComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.movies = this.movieService.getPopularMovies();
+    this.movieService.getPopularMovies().subscribe(data => {
+      this.movies = data.results;
+    });
   }
 
-  addToFavorite(id: any) {
-    this.movieService.setFavoriteMovieId(id);
+  addToFavorite(movie: Movie) {
+    this.movieService.setFavoriteMovie(movie);
   }
 
-  addToWatchList(id: any) {
-    this.movieService.setWatchLaterMovieId(id);
+  addToWatchList(movie: Movie) {
+    this.movieService.setWatchLaterMovie(movie);
   }
 }

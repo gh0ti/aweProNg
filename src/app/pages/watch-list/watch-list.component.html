@@ -2,4 +2,6 @@
 
 <app-movie-list
   [movies]="watchList"
+  [isEnableDelete]="true"
+  (deleteEvt)="deleteFromWatchList($event)"
 ></app-movie-list>

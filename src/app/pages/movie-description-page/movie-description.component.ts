@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {newMovies} from "../../mock-data";
+import {ActivatedRoute} from "@angular/router";
 import {Button} from "primeng/button";
 import {CardModule} from "primeng/card";
 import {NgIf} from "@angular/common";
@@ -8,6 +7,7 @@ import {PrimeTemplate} from "primeng/api";
 import {RatingModule} from "primeng/rating";
 import {FormsModule} from "@angular/forms";
 import {MovieService} from "../../services/movie.service";
+import {Movie} from "../../models/movie.model";
 
 @Component({
   selector: 'app-movie-description-page',
@@ -26,7 +26,7 @@ import {MovieService} from "../../services/movie.service";
 export class MovieDescriptionComponent implements OnInit {
 
   id: string = '';
-  movie: any = {};
+  movie!: Movie;
 
   constructor(
     private route: ActivatedRoute,
@@ -38,7 +38,8 @@ export class MovieDescriptionComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this.movie = this.movieService.allMovies.find(movie => movie.id == +this.id);
+    this.movieService.getMovieDetails(+this.id).subscribe( movie => {
+      this.movie = movie;
+    })
   }
 }

@@ -2,5 +2,7 @@
 
 <app-movie-list
   [movies]="favoriteMovies"
+  [isEnableDelete]="true"
+  (deleteEvt)="deleteFromFavorites($event)"
 ></app-movie-list>
 
