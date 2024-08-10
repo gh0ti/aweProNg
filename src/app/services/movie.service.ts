@@ -18,6 +18,7 @@ export class MovieService {
   apiKey = '?api_key=9fc7cdce076bef3dc549f9fbfb1626e6';
   apiToken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5ZmM3Y2RjZTA3NmJlZjNkYzU0OWY5ZmJmYjE2MjZlNiIsIm5iZiI6MTcyMDEyMTk3NS41NTA2MTUsInN1YiI6IjY2ODZmNmI0OGZhZDJlNzAzOTVlYzUwNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.xZuhqk-TaS0BloCvgA8iSQTCkaj9ywg80FmeILFa1fQ';
   apiBaseUrl = 'https://api.themoviedb.org/3/movie';
+  accountId: number | null = null;
 
   private allMovies: any[] = [];
   private favoriteMovieList: Movie[] = [];
@@ -27,6 +28,10 @@ export class MovieService {
     private httpClient: HttpClient,
   ) {
     this.allMovies = topRatedMovies.concat(newMovies).concat(upcomingMovies);
+  }
+
+  setAccountId(id: number) {
+    this.accountId = id;
   }
 
   getPopularMovies(): Observable<MovieApiModel> {
